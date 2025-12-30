@@ -1,4 +1,4 @@
-import Excel from './Excel2';
+import ExcelExample from './ExcelExample';
 import Logo from './Logo';
 import Body from './Body';
 import Button from './Button';
@@ -8,8 +8,8 @@ import FormInput from './FormInput';
 import Form from './Form';
 import Actions from './Actions';
 import Dialog from './Dialog';
-import Header from './Header';
-import schema from '../config/schema';
+import Header from './Header2';
+import DataContext from '../contexts/DataContext';
 import { useRef, useState } from 'react';
 
 function DialogExample() {
@@ -163,21 +163,15 @@ function Discovery() {
 
             <h2>Header</h2>
             <div>
-                <Header></Header>
+                <DataContext.Provider value={{ data: [1, 2, 3], updateData: () => {} }}>
+                    <Header onSearch={ (e) => console.log(e) }></Header>
+                </DataContext.Provider>
             </div>
 
             <h2>Excel</h2>
-            <Excel
-                schema={schema}
-                initialData={schema.name.samples.map((_, idx) => {
-                    const element = {};
-                    for (let key in schema) {
-                        element[key] = schema[key].samples[idx];
-                    }
-                    return element;
-                })}
-                onDataChange={(data) => console.log(data)}
-            ></Excel>
+            <div>
+                <ExcelExample />
+            </div>
         </div>
     );
 }

@@ -16,6 +16,7 @@
   text-align: left;
   font-weight: 300;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .Dialog .DialogBody {
@@ -30,6 +31,7 @@
   padding: 10px;
   text-align: right;
   background-color: #f3f2f1;
+  width: 100%;
 }
 
 .DialogModal {
@@ -46,6 +48,7 @@
   background: white;
   margin: 5% auto;
   width: 350px;
+  flex-direction: column;
 }
 
 .DialogDismiss {
